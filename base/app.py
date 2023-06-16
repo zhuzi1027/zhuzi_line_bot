@@ -1,5 +1,4 @@
 # 使用xlsx檔作為儲存
-import json
 import datetime
 import re
 import openpyxl
@@ -11,14 +10,10 @@ from linebot.models import MessageEvent, TextMessage
 # 建立flask物件
 app = Flask(__name__)
 
-# 開啟settings.json檔並使用jdata為名稱用以讀取line的必須檔案
-with open('settings.json', 'r', encoding='UTF-8') as jfile:
-    jdata = json.load(jfile)
-
 # 導入linebot的TOKEN
-Line_Bot_Api = LineBotApi(jdata['token'])
+Line_Bot_Api = LineBotApi("your_acces_token")
 # 導入acces ID
-handler = WebhookHandler(jdata['acces'])
+handler = WebhookHandler("channel_acces")
 
 # 要執行的指令
 action = ""
